@@ -1,9 +1,10 @@
 import React from 'react'
+import Navbar from './components/shared/Navbar';
 
 const App = () => {
   return (
     <div>
-      <h1>Let's build gmail clone</h1>
+      <Navbar/>
     </div>
   )
 }
