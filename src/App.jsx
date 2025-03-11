@@ -3,7 +3,7 @@ import Navbar from './components/shared/Navbar';
 
 const App = () => {
   return (
-    <div>
+    <div className='bg-[#F8FAFD] h-screen w-screen overflow-hidden'>
       <Navbar/>
     </div>
   )
