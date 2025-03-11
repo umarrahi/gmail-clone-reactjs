@@ -4,7 +4,7 @@ import { IoSearchSharp } from "react-icons/io5";
 import { RiQuestionLine } from "react-icons/ri";
 import { MdOutlineSettings } from "react-icons/md";
 import { TbGridDots } from "react-icons/tb";
-import Avatar from "react-avatar";
+// import Avatar from "react-avatar";
 
 const Navbar = () => {
   return (
@@ -43,11 +43,11 @@ const Navbar = () => {
             <TbGridDots size={"22px"} className="text-gray-600" />
           </div>
           <div className="cursor-pointer">
-            <Avatar
+            {/* <Avatar
               src="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
               size="40"
               round={true}
-            />
+            /> */}
           </div>
         </div>
       </div>
