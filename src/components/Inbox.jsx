@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaCaretDown, FaUserFriends } from "react-icons/fa";
 import { GoTag } from "react-icons/go";
 import { IoMdMore, IoMdRefresh } from "react-icons/io";
@@ -20,6 +20,10 @@ const mailType = [
 ];
 
 const Inbox = () => {
+
+const [mailTypeSelected, setMailTypeSelected] = useState(0)
+
+
   return (
     <div className="flex-1 bg-white rounded-xl mx-5">
       {/* Header Icons */}
@@ -44,7 +48,8 @@ const Inbox = () => {
             return (
               <button
                 key={index}
-                className="flex item-center gap-5 p-4 w-52 hover:bg-gray-100"
+                className={`${mailTypeSelected === index ? 'border-b-4 border-b-blue-600 text-blue-600': 'border-b-4 border-b-transparent'} flex item-center gap-5 cursor-pointer p-4 w-52 hover:bg-gray-100`}
+                onClick={()=>setMailTypeSelected(index)}
               >
                 {item.icon}
                 <span>{item.text}</span>
