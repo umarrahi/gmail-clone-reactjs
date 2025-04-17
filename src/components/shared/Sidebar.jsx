@@ -10,6 +10,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { TbInbox } from "react-icons/tb";
 
 const Sidebar = () => {
+  
   const sidebaItems = [
     {
       icon: <TbInbox size={"20px"} />,
