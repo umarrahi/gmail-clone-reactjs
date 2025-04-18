@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import Messages from "./Messages";
 import { FaCaretDown, FaUserFriends } from "react-icons/fa";
 import { GoTag } from "react-icons/go";
 import { IoMdMore, IoMdRefresh } from "react-icons/io";
 import { MdCropSquare, MdInbox } from "react-icons/md";
-import Messages from "./Messages";
 import { LiaAngleLeftSolid, LiaAngleRightSolid } from "react-icons/lia";
 
 const mailType = [
@@ -41,7 +41,7 @@ const Inbox = () => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <p className="text-gray-500 ">1-50 of 1000</p>
+          <p className="text-gray-500 text-sm">1-50 of 1000</p>
           <button className="hover:rounded-full hover:bg-gray-100 p-2"> 
             <LiaAngleLeftSolid size={"20px"} />
           </button>
