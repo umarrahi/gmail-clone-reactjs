@@ -39,7 +39,6 @@ const sidebaItems = [
 ];
 const Sidebar = () => {
   
-  // const [open, setOpen] = useState(false); // This is the local state variable
   const dispatch = useDispatch();
 
   return (
