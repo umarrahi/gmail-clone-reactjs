@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { setOpen } from "../redux/appSlice";
-import { addDoc, collection } from "firebase/firestore/lite";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 
 const SendMail = () => {
@@ -21,20 +21,25 @@ const SendMail = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await addDoc(collection(db, "email"), {
-      to: formData.to,
-      subject: formData.subject,
-      message: formData.message,
-      createdAt: serverTimestamp(),
-    });
+    try {
+      await addDoc(collection(db, "email"), {
+        to: formData.to,
+        subject: formData.subject,
+        message: formData.message,
+        createdAt: serverTimestamp(),
+      });
 
-    console.log(formData);
-    dispatch(setOpen(false));
-    setFormData({
+      console.log(formData);
+      dispatch(setOpen(false));
+      setFormData({
         to: "",
         subject: "",
         message: "",
-    });
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("Failed to send email. Please try again.");
+    }
   };
 
   return (
@@ -59,7 +64,7 @@ const SendMail = () => {
           value={formData.to}
           onChange={handleChange}
           placeholder="To"
-          className="outline-none py-1 border-b-1 border-gray-200"
+          className="outline-none py-1 border-b border-gray-200"
         />
         <input
           type="text"
@@ -67,7 +72,7 @@ const SendMail = () => {
           value={formData.subject}
           onChange={handleChange}
           placeholder="Subject"
-          className="outline-none py-1 border-b-1 border-gray-200"
+          className="outline-none py-1 border-b border-gray-200"
         />
         <textarea
           name="message"
@@ -75,7 +80,7 @@ const SendMail = () => {
           onChange={handleChange}
           cols={"30"}
           rows={"10"}
-          className="outline-none py-1"
+          className="outline-none py-1 border-b border-gray-200"
         ></textarea>
         <button
           type="submit"
