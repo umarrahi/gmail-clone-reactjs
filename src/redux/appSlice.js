@@ -3,14 +3,23 @@ import {createSlice} from '@reduxjs/toolkit';
 const appSlice = createSlice({
     name: "appSlice",
     initialState:{
-        isOpen : false
+        isOpen : false,
+        emails: [],
+        selectedEmail: null,
     },
     reducers:{
-        // action
+        // actions
         setOpen:(state, action)=>{
             state.isOpen  = action.payload;
-        }
+        },
+        setEmails:(state, action)=>{
+            state.emails = action.payload;
+        },
+        setSelectedEmail:(state, action)=>{
+            state.selectedEmail = action.payload;
+        },
+
     }
 });
-export const {setOpen} = appSlice.actions;
+export const {setOpen, setEmails, setSelectedEmail} = appSlice.actions;
 export default appSlice.reducer;
